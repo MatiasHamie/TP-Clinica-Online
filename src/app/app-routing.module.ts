@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'home', component: BienvenidoComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'error', component: ErrorComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '/error' }
+  // { path: 'error', component: ErrorComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '/login' }
 ];
 
 @NgModule({
