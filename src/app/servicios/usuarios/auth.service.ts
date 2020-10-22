@@ -33,6 +33,7 @@ export class AuthService {
   async register(email: string, password: string) {
     try {
       const resultado = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      // const user = (await this.afAuth.currentUser).sendEmailVerification().then(() => console.log('se envio correo'));
       return resultado;
     } catch (error) {
       console.log(error);

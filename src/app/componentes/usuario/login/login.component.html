@@ -1,63 +1,66 @@
-<div class="row">
-  <div class="col-md-6 mx-auto mt-5">
-    <div class="card shadow">
-      <div class="card-body">
-        <div class="card-title">
-          <h4 class="text-center">LOGIN</h4>
-        </div>
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-6 mt-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="card-title">
+            <h4 class="text-center">LOGIN</h4>
+            <h5 class="text-center bg-warning" *ngIf="mostrarMensajeError">{{ mostrarMensajeError }}</h5>
+          </div>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': (loginForm.get('email').touched ||
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': (loginForm.get('email').touched ||
             loginForm.get('email').dirty) &&
            !loginForm.get('email').valid }" autocomplete="off">
 
-            <span class="invalid-feedback">
-              <span *ngIf="loginForm.get('email').errors?.required">
-                Campo requerido
+              <span class="invalid-feedback">
+                <span *ngIf="loginForm.get('email').errors?.required">
+                  Campo requerido
+                </span>
+                <span *ngIf="loginForm.get('email').errors?.minlength">
+                  Minimo 3 caracteres
+                </span>
+                <span *ngIf="loginForm.get('email').errors?.email">
+                  Ingrese un email valido
+                </span>
               </span>
-              <span *ngIf="loginForm.get('email').errors?.minlength">
-                Minimo 3 caracteres
-              </span>
-              <span *ngIf="loginForm.get('email').errors?.email">
-                Ingrese un email valido
-              </span>
-            </span>
-          </div>
+            </div>
 
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': (loginForm.get('password').touched ||
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': (loginForm.get('password').touched ||
             loginForm.get('password').dirty) &&
            !loginForm.get('password').valid }" autocomplete="off">
 
-            <span class="invalid-feedback">
-              <span *ngIf="loginForm.get('password').errors?.required">
-                Campo requerido
+              <span class="invalid-feedback">
+                <span *ngIf="loginForm.get('password').errors?.required">
+                  Campo requerido
+                </span>
+                <span *ngIf="loginForm.get('password').errors?.minlength">
+                  Minimo 3 caracteres
+                </span>
               </span>
-              <span *ngIf="loginForm.get('password').errors?.minlength">
-                Minimo 3 caracteres
-              </span>
-            </span>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col d-flex flex-row justify-content-around">
-                <button type="submit" class="btn btn-primary btn-lg">
-                  Login
-                </button>
-                <button type="button" class="btn btn-warning btn-lg" (click)="loginPrueba()">
-                  Loguearse con usuario admin
-                </button>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col d-flex flex-row justify-content-around">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    Login
+                  </button>
+                  <button type="button" class="btn btn-warning btn-lg" (click)="loginPrueba()">
+                    Loguearse con usuario admin
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
 
-        <div class="form-group mt-3">
-          <p> Crear una cuenta <a [routerLink]="['/registro']">Register</a></p>
+          <div class="form-group mt-3">
+            <p> Crear una cuenta <a [routerLink]="['/registro']">Register</a></p>
+          </div>
         </div>
       </div>
     </div>
