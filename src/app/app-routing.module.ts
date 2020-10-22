@@ -9,7 +9,7 @@ import { VerificarLoginGuard } from "./componentes/compartido/guards/verificar-l
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
-  { path: 'home', component: BienvenidoComponent, canActivate: [VerificarLoginGuard] },
+  { path: 'home', component: BienvenidoComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'error', component: ErrorComponent },
