@@ -8,11 +8,11 @@ import { RegistroComponent } from './componentes/usuario/registro/registro.compo
 import { VerificarLoginGuard } from "./componentes/compartido/guards/verificar-login.guard";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'home', component: BienvenidoComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'error', component: ErrorComponent },
+  // { path: 'error', component: ErrorComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
