@@ -8,7 +8,7 @@ import { RegistroComponent } from './componentes/usuario/registro/registro.compo
 import { VerificarLoginGuard } from "./componentes/compartido/guards/verificar-login.guard";
 
 const routes: Routes = [
-  { path: 'home', component: BienvenidoComponent },
+  { path: 'home', component: BienvenidoComponent, canActivate: [VerificarLoginGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
   // { path: 'error', component: ErrorComponent },
