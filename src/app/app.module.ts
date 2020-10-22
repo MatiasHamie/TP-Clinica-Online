@@ -13,6 +13,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from "../environments/environment";
 import { BienvenidoComponent } from './componentes/paginas/bienvenido/bienvenido.component';
+import { NavComponent } from './componentes/compartido/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BienvenidoComponent } from './componentes/paginas/bienvenido/bienvenido
     LoginComponent,
     RegistroComponent,
     ErrorComponent,
-    BienvenidoComponent
+    BienvenidoComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
