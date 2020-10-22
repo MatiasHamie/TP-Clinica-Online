@@ -1,0 +1,5 @@
+<p>bienvenido works!</p>
+{{'Usuario conectado: ' + user?.email }}
+
+<a class="nav-link text-center text-white bg-danger px-3" style="border-radius: 10px;" *ngIf="user"
+  (click)="logout()">Desloguearse</a>

@@ -1,1 +1,57 @@
-<p>registro works!</p>
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="text-center">REGISTER</h4>
+          <h5 class="text-center bg-warning" *ngIf="mostrarMensajeError">{{ mostrarMensajeError }}</h5>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <div class="form-group">
+
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': (registerForm.get('email').touched ||
+                                        registerForm.get('email').dirty) &&
+                                       !registerForm.get('email').valid }" autocomplete="off">
+
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('email').errors?.required">
+                Campo requerido
+              </span>
+              <span *ngIf="registerForm.get('email').errors?.minlength">
+                Minimo 3 caracteres
+              </span>
+              <span *ngIf="registerForm.get('email').errors?.email">
+                Ingrese un email valido
+              </span>
+            </span>
+          </div>
+
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': (registerForm.get('password').touched ||
+                                        registerForm.get('password').dirty) &&
+                                       !registerForm.get('password').valid }" autocomplete="off">
+
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('password').errors?.required">
+                Campo requerido
+              </span>
+              <span *ngIf="registerForm.get('password').errors?.minlength">
+                Minimo 3 caracteres
+              </span>
+            </span>
+
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            Register
+          </button>
+        </form>
+        <div class="form-group mt-3">
+          <p> Si ya tenés una cuenta <a [routerLink]="['/login']">logueate</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
