@@ -3,17 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "postinstall": "ng build --output-path angularapp --aot --prod",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.14",
+    "@angular/cli": "~10.0.8",
     "@angular/common": "~10.0.14",
     "@angular/compiler": "~10.0.14",
+    "@angular/compiler-cli": "~10.0.14",
     "@angular/core": "~10.0.14",
     "@angular/fire": "^6.0.3",
     "@angular/forms": "~10.0.14",
@@ -21,11 +24,14 @@
     "@angular/platform-browser-dynamic": "~10.0.14",
     "@angular/router": "~10.0.14",
     "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
     "firebase": "^7.24.0",
     "jquery": "^3.5.1",
+    "path": "^0.12.7",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typescript": "~3.9.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
@@ -47,5 +53,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
+  },
+  "engines": {
+    "node": "v12.16.2",
+    "npm": "6.14.4"
   }
 }
