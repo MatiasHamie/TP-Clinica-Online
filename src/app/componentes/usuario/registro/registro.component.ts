@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { PrivilegiosService } from "../../../servicios/privilegios.service";
 
 import { AuthService } from "../../../servicios/usuarios/auth.service";
 
@@ -16,12 +17,14 @@ export class RegistroComponent implements OnInit {
 
   constructor(private authService: AuthService,
     private router: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private db: PrivilegiosService) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.minLength(3), Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(3)]]
+      password: ['', [Validators.required, Validators.minLength(3)]],
+      tipoUsuario: ['paciente'],
     });
   }
 
@@ -34,6 +37,13 @@ export class RegistroComponent implements OnInit {
           console.log('entro al then del registro', user);
           if (user) {
             this.router.navigate(['/home']);
+            console.log('Prueba ->', user);
+            let data = {
+              email: user.user.email,
+              tipo: this.registerForm.get('tipoUsuario').value
+            }
+            this.db.crearUser(data)
+
           }
           else {
             console.log('error de registro');
